@@ -12,12 +12,12 @@ def trim_audio(audio_path, duration=30000):  # Duration in milliseconds
     trimmed_audio.export(trimmed_path, format="wav")  # Save the trimmed audio
     return trimmed_path
 
-def language_detection(audio_path, model_size="turbo"):
+def language_detection(audio_path, model_size="medium"):
     model = whisper.load_model(model_size)
     result = model.transcribe(audio_path, verbose=False)
     return result['language']
 
-def transcribe_audio(audio_path, model_size="turbo"):
+def transcribe_audio(audio_path, model_size="medium"):
     model = whisper.load_model(model_size)
     result = model.transcribe(audio_path, verbose=False,language='english')
     return result['text']
